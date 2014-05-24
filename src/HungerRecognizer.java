@@ -7,26 +7,35 @@ import org.antlr.v4.runtime.tree.ParseTree;
 
 import antlrgen.hungerLexer;
 import antlrgen.hungerParser;
+import antlrgen.hungerParser.DefineerimineContext;
+import antlrgen.hungerParser.KilogramContext;
 import antlrgen.hungerParser.KoodContext;
 import antlrgen.hungerParser.LauseContext;
 import antlrgen.hungerParser.LitreContext;
+import antlrgen.hungerParser.NewFoodContext;
 import antlrgen.hungerParser.NewRecipeContext;
+import antlrgen.hungerParser.OmistamineContext;
 import antlrgen.hungerParser.PieceContext;
 import antlrgen.hungerParser.RecipeNameContext;
 
 public class HungerRecognizer {
 
 	public static List<String> hunger(ParseTree tree) {
-		// if (tree instanceof NewRecipeContext){
-		// return Arrays.asList(tree.getChild(0).getText());
-		// }
 		if (tree instanceof KoodContext){
 			return hunger(tree.getChild(0));
-		}
-		else if (tree instanceof LauseContext){
+		} else if (tree instanceof LauseContext){
 			return hunger(tree.getChild(0));
-		}
-		else if (tree instanceof PieceContext) {
+		} else if (tree instanceof DefineerimineContext){
+			return hunger(tree.getChild(0));
+		} else if (tree instanceof NewFoodContext) {
+			return Arrays.asList(tree.getChild(0).getText());
+		} else if (tree instanceof NewRecipeContext) {
+			return Arrays.asList(tree.getChild(0).getText());
+		} else if (tree instanceof OmistamineContext){
+			return Arrays.asList(tree.getChild(0).getText());
+		} else if (tree instanceof KilogramContext) {
+			return Arrays.asList(tree.getChild(1).getText());
+		} else if (tree instanceof PieceContext) {
 			return Arrays.asList(tree.getChild(1).getText());
 		} else if (tree instanceof LitreContext) {
 			return Arrays.asList(tree.getChild(1).getText());
@@ -38,7 +47,7 @@ public class HungerRecognizer {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String uus = "\"bannan\"";
+		String uus = "newFood(aaa, bbb)";
 		ANTLRInputStream input = new ANTLRInputStream(uus);
 		hungerLexer lexer = new hungerLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);

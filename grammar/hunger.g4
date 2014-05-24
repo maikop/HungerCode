@@ -5,24 +5,20 @@ kood
     ;
 lause
 	:   newRecipe
+	| 	newFood
 	|   omistamine
 	|   defineerimine
-	|   kilogram
-	|	piece
 	|	recipeName
-	| //gram
 	;
 
 newRecipe
     :   'newRecipe' '(' recipeName (',' String)+ (',' 'servings' '=' Number)? (',' 'star' '=' Number)? ')'
     ;
-
+    
 newFood
-    :   'newFood' '(' (String)+ ('False' | 'True')? ')'
+    :   'newFood' '(' String (',' String)* ('False' | 'True')? ')'
     ;
-//ingredient
-  //  : String
-    //;
+
 omistamine
 	:   (String|kilogram) '=' Number ('kg'|'g'|'mg')
 	|   (String|piece) '=' Number 'pc'
