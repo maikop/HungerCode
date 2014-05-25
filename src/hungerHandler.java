@@ -15,6 +15,7 @@ import java.util.Arrays;
 
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.Collections;
 
@@ -56,18 +57,18 @@ public class hungerHandler {
 		{
 			String rida = sc.nextLine().toUpperCase();
 			String[] tykid = rida.split("[,;=]");
-			String key = tykid[0];					// see on recipeName, läheb võtmeks
+			String key = tykid[0];					// see on recipeName, lï¿½heb vï¿½tmeks
 			ArrayList<String> ingredients = new ArrayList<String>();
 			for (int i = 1; i < tykid.length; i++)
 			{
-				ingredients.add(tykid[i]);			// need on ingredientid, lähevad listina mapi väärtuseks
+				ingredients.add(tykid[i]);			// need on ingredientid, lï¿½hevad listina mapi vï¿½ï¿½rtuseks
 			}
 			recipeMap.put(key, ingredients); 		// Map<recipeName, listWithIngredients[]>
 		}
 		sc.close();		
 		//System.out.println(tree.getChild(2).getText());
 		//tree.getChild(tree.getChildCount()-2).getText();
-		String bool = tree.getChild(tree.getChildCount()-2).getText(); 	//kas lõpus on "True" või "False"	
+		String bool = tree.getChild(tree.getChildCount()-2).getText(); 	//kas lï¿½pus on "True" vï¿½i "False"	
 		
 		if (bool.equals("True"))
 		{
@@ -87,7 +88,7 @@ public class hungerHandler {
 					}
 
 				}
-				// Kui retsept koosneb AINULT newFoodi argumentidest, prindime retsepti välja
+				// Kui retsept koosneb AINULT newFoodi argumentidest, prindime retsepti vï¿½lja
 				if (boo)
 				{
 					System.out.print(key + ": ");		// kujul "recipeName: ingr1 ingr2 ..."
@@ -149,6 +150,43 @@ public class hungerHandler {
 		}
 	}
 	
+static Map<String, Double> kilo = new HashMap<String, Double>();
+	public static void kiloHandler(ParseTree tree){
+		String ingredient = tree.getChild(0).getChild(1).getText();
+		String value = tree.getChild(2).getText();
+		double amount = Double.parseDouble(value);
+		if (tree.getChild(3).getText().equals("kg")){
+			amount = amount*1000;
+		}
+		else if (tree.getChild(3).getText().equals("mg")){
+			amount = amount/1000;
+		}
+		kilo.put(ingredient, amount);
+		
+	}
+	static Map<String, Double> litre = new HashMap<String, Double>();
+	public static void litreHandler(ParseTree tree){
+		String ingredient = tree.getChild(0).getChild(1).getText();
+		String value = tree.getChild(2).getText();
+		double amount = Double.parseDouble(value);
+		if (tree.getChild(3).getText().equals("dl")){
+			amount = amount/10;
+		}
+		else if (tree.getChild(3).getText().equals("ml")){
+			amount = amount/1000;
+		}
+		litre.put(ingredient, amount);
+		
+	}
+	static Map<String, Double> piece = new HashMap<String, Double>();
+	public static void pieceHandler(ParseTree tree){
+		String ingredient = tree.getChild(0).getChild(1).getText();
+		String value = tree.getChild(2).getText();
+		double amount = Double.parseDouble(value);
+		
+		piece.put(ingredient, amount);
+	}
+
 }
 
 
