@@ -1,0 +1,4 @@
+
+Kilogram eyes = 5 kg;
+Kilogram nose = 1 g;
+newFood(sugar, butter);

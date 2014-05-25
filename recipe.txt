@@ -5,3 +5,5 @@
 "Potatoes";potato=1kg,sauce=2dl,salad=1kg,milk=1l
 "spaghetti";spaghetti=500g,milk=500ml,butter=50g,flour=1g
 "boiledegg";egg=2pc,water=5dl,servings=1
+"trolololo";kartoffel=2kg,pineapple=2g
+"kypsised";butter=50g,coconut=200g,sugar=100g

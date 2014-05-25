@@ -24,16 +24,15 @@ import antlrgen.hungerParser.OmistamineContext;
 import antlrgen.hungerParser.PieceContext;
 import antlrgen.hungerParser.RecipeNameContext;
 
+
 public class HungerRecognizer {
 	
 	//static hungerHandler hh;
 
 	public static List<String> hunger(ParseTree tree) throws IOException {
 		if (tree instanceof KoodContext){
-			System.out.println(tree.getChildCount());
 			for (int i = 0; i<tree.getChildCount()-1; i += 2){
 				
-			System.out.println("1" + i);
 			hunger(tree.getChild(i));}
 		} else if (tree instanceof LauseContext){
 			hunger(tree.getChild(0));
@@ -78,15 +77,10 @@ public class HungerRecognizer {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
-		String uus = "newFood( spaghetti, cow, egg, butter, milk, flour, sugar, fish, True)";
-		ANTLRInputStream input = new ANTLRInputStream(uus);
-=======
 		String fileName = args[0];
 		String expr = hungerUtils.getAKTKFileContent(fileName);
-		System.out.println(expr);
+		System.out.println(expr + "\n\n");
 		ANTLRInputStream input = new ANTLRInputStream(expr);
->>>>>>> 10bb68210467e1db71855cace6311a16862581b5
 		hungerLexer lexer = new hungerLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		hungerParser parser = new hungerParser(tokens);
