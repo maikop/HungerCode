@@ -12,11 +12,11 @@ lause
 	;
 
 newRecipe
-    :   'newRecipe' '(' recipeName (',' String)+ (',' 'servings' '=' Number)? (',' 'star' '=' Number)? ')'
+    :   'newRecipe' '(' recipeName (',' omistamine)+ (',' 'servings' '=' Number)? (',' 'star' '=' Number)? ')'
     ;
     
 newFood
-    :   'newFood' '(' String (',' String)* ('False' | 'True')? ')'
+    :   'newFood' '(' String (',' String)* (',' ('False' | 'True'))? ')'
     ;
 
 omistamine
@@ -44,7 +44,7 @@ piece
     :   'Piece' String
     ;
 recipeName
-    :   '"' String '"'
+    :   '"' (String)+ '"'
     ;
 Number
     :   ('0'|[1-9][0-9]*)('.'[0-9]+)?

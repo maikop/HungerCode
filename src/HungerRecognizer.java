@@ -50,15 +50,15 @@ public class HungerRecognizer {
 		} else if (tree instanceof LitreContext) {
 			return Arrays.asList(tree.getChild(1).getText());
 		} else if (tree instanceof RecipeNameContext) {
-			//return Arrays.asList(tree.getChild(1).getText());
-			//
+			return Arrays.asList(tree.getChild(1).getText());
+			
 		}
 		return Arrays.asList("Bon appetit!");
 	}
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		String uus = "newFood(munad)";
+		String uus = "newFood(egg, fish, sugar, milk, cow, birds, flour, True)";
 		ANTLRInputStream input = new ANTLRInputStream(uus);
 		hungerLexer lexer = new hungerLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);

@@ -15,8 +15,8 @@ import java.util.Arrays;
 
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
+import java.util.Collections;
 
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -51,11 +51,11 @@ public class hungerHandler {
 		java.io.File fail = new java.io.File("recipe.txt");
 		java.util.Scanner sc = new java.util.Scanner(fail);
 		HashMap<String, ArrayList<String>> recipeMap = new HashMap<String, ArrayList<String>>();
-		
+		HashMap<Integer, String> ingredientMap = new HashMap<Integer, String>();
 		while (sc.hasNextLine())
 		{
 			String rida = sc.nextLine().toUpperCase();
-			String[] tykid = rida.split("[,;]");
+			String[] tykid = rida.split("[,;=]");
 			String key = tykid[0];					// see on recipeName, läheb võtmeks
 			ArrayList<String> ingredients = new ArrayList<String>();
 			for (int i = 1; i < tykid.length; i++)
@@ -64,30 +64,93 @@ public class hungerHandler {
 			}
 			recipeMap.put(key, ingredients); 		// Map<recipeName, listWithIngredients[]>
 		}
-		sc.close();
+		sc.close();		
+		//System.out.println(tree.getChild(2).getText());
+		//tree.getChild(tree.getChildCount()-2).getText();
+		String bool = tree.getChild(tree.getChildCount()-2).getText(); 	//kas lõpus on "True" või "False"	
 		
-		Set<String> keys = recipeMap.keySet();
-		
-		for(String key : keys){
-			if (recipeMap.get(key).contains(tree.getChild(2).getText().toUpperCase()))
-				// pmst 'if recipeName.ingredients contains "newFoodiArgument", siis prindib välja'
+		if (bool.equals("True"))
+		{
+
+			
+			for(String key : recipeMap.keySet())
 			{
-				System.out.print(key + ": ");		// kujul "recipeName: ingr1 ingr2 ..."
-				for(String ingredient : recipeMap.get(key))
-				{
-					System.out.print(ingredient + " ");
+				boolean boo = true;
+				String[] arguments = tree.getText().toUpperCase().substring(8, (tree.getText().length()-6)).split(",");
+				for (int i = 0; i < recipeMap.get(key).size(); i += 2)
+				{	// Kontroll, kas retsept koosneb AINULT newFoodi argumentidest
+					
+					if (!Arrays.asList(arguments).contains(recipeMap.get(key).toArray()[i]))
+					{
+						boo = false;
+						break;
+					}
+
 				}
-				System.out.println();				// new line :)
+				// Kui retsept koosneb AINULT newFoodi argumentidest, prindime retsepti välja
+				if (boo)
+				{
+					System.out.print(key + ": ");		// kujul "recipeName: ingr1 ingr2 ..."
+					for(String ingredient : recipeMap.get(key))
+					{
+						System.out.print(ingredient + " ");
+					}
+					System.out.println();				// new line :)
+				}
 			}
+		}
+		
+		else
+		{
+			for(String key : recipeMap.keySet()){
+				int counter = 0;			// See osa vaatab, mitu antud ingredienti retseptis olemas on
+				for(int i = 2; i<=tree.getChildCount() - 3; i++)
+				{
+					if (recipeMap.get(key).contains(tree.getChild(i).getText().toUpperCase()))
+					{
+						counter += 1;		// kui mingi toiduaine on olemas retseptis, increment 1
+					}
+				}
+				ingredientMap.put(counter, key); 	// map<Ingredientide arv, recipeName>
+			}
+			Object[] ingredientList = ingredientMap.keySet().toArray();
+			Arrays.sort(ingredientList);
+			try
+			{
+				for(int i = 1; i < 6 ; i++)
+				{
+					//System.out.println( ingredientMap.get(ingredientList[ingredientList.length - i]) );
+					String key = ingredientMap.get(ingredientList[ingredientList.length - i]);
+					if (recipeMap.get(key).contains(tree.getChild(2).getText().toUpperCase()))
+						// pmst 'if recipeName.ingredients contains "newFoodiArgument", siis prindib välja'
+					{
+						System.out.print(key + ": ");		// kujul "recipeName: ingr1 ingr2 ..."
+						for(String ingredient : recipeMap.get(key))
+						{
+							System.out.print(ingredient + " ");
+						}
+						System.out.print("  (Sul on " + ingredientList[ingredientList.length - i] + " toiduainet olemas)");
+						System.out.println();				// new line :)
+					}
+					
+				}
+			}
+			catch (ArrayIndexOutOfBoundsException e){}
 		}
 	}
 	
 }
 
 
+//System.out.println(recipeMap.get(key).toArray()[i]); print out recipe ingredients
 
-
-
+//if( contains(recipeMap.get(key).toArray()[i]) )
+//
+//	!recipeMap.get(key).contains(tree.getChild(i).getText().toUpperCase())
+//{	
+//	boo = false;
+//	break;
+//}
 
 
 

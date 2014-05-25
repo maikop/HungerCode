@@ -1,3 +1,2 @@
-"Test";aaa,bbb,munad,kana
-"Pannkook";jahu,suhkur,munad,pann
-"uus";kana,kukk,shokolaad
+"katsewithuussyntaks";flour=30g,egg=5pc,sugar=1kg
+"pancakes";fish=2pc,milk=3l,sugar=8dl,egg=5pc

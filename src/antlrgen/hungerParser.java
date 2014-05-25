@@ -169,11 +169,13 @@ public class hungerParser extends Parser {
 	}
 
 	public static class NewRecipeContext extends ParserRuleContext {
-		public List<TerminalNode> String() { return getTokens(hungerParser.String); }
-		public TerminalNode String(int i) {
-			return getToken(hungerParser.String, i);
+		public OmistamineContext omistamine(int i) {
+			return getRuleContext(OmistamineContext.class,i);
 		}
 		public List<TerminalNode> Number() { return getTokens(hungerParser.Number); }
+		public List<OmistamineContext> omistamine() {
+			return getRuleContexts(OmistamineContext.class);
+		}
 		public RecipeNameContext recipeName() {
 			return getRuleContext(RecipeNameContext.class,0);
 		}
@@ -211,7 +213,7 @@ public class hungerParser extends Parser {
 					{
 					{
 					setState(32); match(7);
-					setState(33); match(String);
+					setState(33); omistamine();
 					}
 					}
 					break;
@@ -279,6 +281,7 @@ public class hungerParser extends Parser {
 		enterRule(_localctx, 6, RULE_newFood);
 		int _la;
 		try {
+			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(52); match(9);
@@ -286,23 +289,26 @@ public class hungerParser extends Parser {
 			setState(54); match(String);
 			setState(59);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==7) {
-				{
-				{
-				setState(55); match(7);
-				setState(56); match(String);
-				}
+			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+			while ( _alt!=2 && _alt!=ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					{
+					{
+					setState(55); match(7);
+					setState(56); match(String);
+					}
+					} 
 				}
 				setState(61);
 				_errHandler.sync(this);
-				_la = _input.LA(1);
+				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			}
-			setState(63);
+			setState(64);
 			_la = _input.LA(1);
-			if (_la==1 || _la==3) {
+			if (_la==7) {
 				{
-				setState(62);
+				setState(62); match(7);
+				setState(63);
 				_la = _input.LA(1);
 				if ( !(_la==1 || _la==3) ) {
 				_errHandler.recoverInline(this);
@@ -311,7 +317,7 @@ public class hungerParser extends Parser {
 				}
 			}
 
-			setState(65); match(5);
+			setState(66); match(5);
 			}
 		}
 		catch (RecognitionException re) {
@@ -353,31 +359,31 @@ public class hungerParser extends Parser {
 		enterRule(_localctx, 8, RULE_omistamine);
 		int _la;
 		try {
-			setState(88);
+			setState(89);
 			switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(69);
+				setState(70);
 				switch (_input.LA(1)) {
 				case String:
 					{
-					setState(67); match(String);
+					setState(68); match(String);
 					}
 					break;
 				case 14:
 				case 15:
 				case 22:
 					{
-					setState(68); kilogram();
+					setState(69); kilogram();
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(71); match(11);
-				setState(72); match(Number);
-				setState(73);
+				setState(72); match(11);
+				setState(73); match(Number);
+				setState(74);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 4) | (1L << 23) | (1L << 25))) != 0)) ) {
 				_errHandler.recoverInline(this);
@@ -389,50 +395,50 @@ public class hungerParser extends Parser {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(76);
+				setState(77);
 				switch (_input.LA(1)) {
 				case String:
 					{
-					setState(74); match(String);
+					setState(75); match(String);
 					}
 					break;
 				case 8:
 					{
-					setState(75); piece();
+					setState(76); piece();
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(78); match(11);
-				setState(79); match(Number);
-				setState(80); match(18);
+				setState(79); match(11);
+				setState(80); match(Number);
+				setState(81); match(18);
 				}
 				break;
 
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(83);
+				setState(84);
 				switch (_input.LA(1)) {
 				case String:
 					{
-					setState(81); match(String);
+					setState(82); match(String);
 					}
 					break;
 				case 2:
 				case 13:
 				case 16:
 					{
-					setState(82); litre();
+					setState(83); litre();
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(85); match(11);
-				setState(86); match(Number);
-				setState(87);
+				setState(86); match(11);
+				setState(87); match(Number);
+				setState(88);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 12) | (1L << 17) | (1L << 21))) != 0)) ) {
 				_errHandler.recoverInline(this);
@@ -478,14 +484,14 @@ public class hungerParser extends Parser {
 		DefineerimineContext _localctx = new DefineerimineContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_defineerimine);
 		try {
-			setState(93);
+			setState(94);
 			switch (_input.LA(1)) {
 			case 14:
 			case 15:
 			case 22:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(90); kilogram();
+				setState(91); kilogram();
 				}
 				break;
 			case 2:
@@ -493,13 +499,13 @@ public class hungerParser extends Parser {
 			case 16:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(91); litre();
+				setState(92); litre();
 				}
 				break;
 			case 8:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(92); piece();
+				setState(93); piece();
 				}
 				break;
 			default:
@@ -534,27 +540,27 @@ public class hungerParser extends Parser {
 		KilogramContext _localctx = new KilogramContext(_ctx, getState());
 		enterRule(_localctx, 12, RULE_kilogram);
 		try {
-			setState(101);
+			setState(102);
 			switch (_input.LA(1)) {
 			case 22:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(95); match(22);
-				setState(96); match(String);
+				setState(96); match(22);
+				setState(97); match(String);
 				}
 				break;
 			case 14:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(97); match(14);
-				setState(98); match(String);
+				setState(98); match(14);
+				setState(99); match(String);
 				}
 				break;
 			case 15:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(99); match(15);
-				setState(100); match(String);
+				setState(100); match(15);
+				setState(101); match(String);
 				}
 				break;
 			default:
@@ -589,27 +595,27 @@ public class hungerParser extends Parser {
 		LitreContext _localctx = new LitreContext(_ctx, getState());
 		enterRule(_localctx, 14, RULE_litre);
 		try {
-			setState(109);
+			setState(110);
 			switch (_input.LA(1)) {
 			case 16:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(103); match(16);
-				setState(104); match(String);
+				setState(104); match(16);
+				setState(105); match(String);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(105); match(2);
-				setState(106); match(String);
+				setState(106); match(2);
+				setState(107); match(String);
 				}
 				break;
 			case 13:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(107); match(13);
-				setState(108); match(String);
+				setState(108); match(13);
+				setState(109); match(String);
 				}
 				break;
 			default:
@@ -646,8 +652,8 @@ public class hungerParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(111); match(8);
-			setState(112); match(String);
+			setState(112); match(8);
+			setState(113); match(String);
 			}
 		}
 		catch (RecognitionException re) {
@@ -662,7 +668,10 @@ public class hungerParser extends Parser {
 	}
 
 	public static class RecipeNameContext extends ParserRuleContext {
-		public TerminalNode String() { return getToken(hungerParser.String, 0); }
+		public List<TerminalNode> String() { return getTokens(hungerParser.String); }
+		public TerminalNode String(int i) {
+			return getToken(hungerParser.String, i);
+		}
 		public RecipeNameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -677,12 +686,25 @@ public class hungerParser extends Parser {
 	public final RecipeNameContext recipeName() throws RecognitionException {
 		RecipeNameContext _localctx = new RecipeNameContext(_ctx, getState());
 		enterRule(_localctx, 18, RULE_recipeName);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(114); match(24);
-			setState(115); match(String);
-			setState(116); match(24);
+			setState(115); match(24);
+			setState(117); 
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			do {
+				{
+				{
+				setState(116); match(String);
+				}
+				}
+				setState(119); 
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			} while ( _la==String );
+			setState(121); match(24);
 			}
 		}
 		catch (RecognitionException re) {
@@ -697,37 +719,38 @@ public class hungerParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\36y\4\2\t\2\4\3\t"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\36~\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\3"+
 		"\2\3\2\3\3\3\3\3\3\3\3\3\3\5\3\36\n\3\3\4\3\4\3\4\3\4\3\4\6\4%\n\4\r\4"+
 		"\16\4&\3\4\3\4\3\4\3\4\5\4-\n\4\3\4\3\4\3\4\3\4\5\4\63\n\4\3\4\3\4\3\5"+
-		"\3\5\3\5\3\5\3\5\7\5<\n\5\f\5\16\5?\13\5\3\5\5\5B\n\5\3\5\3\5\3\6\3\6"+
-		"\5\6H\n\6\3\6\3\6\3\6\3\6\3\6\5\6O\n\6\3\6\3\6\3\6\3\6\3\6\5\6V\n\6\3"+
-		"\6\3\6\3\6\5\6[\n\6\3\7\3\7\3\7\5\7`\n\7\3\b\3\b\3\b\3\b\3\b\3\b\5\bh"+
-		"\n\b\3\t\3\t\3\t\3\t\3\t\3\t\5\tp\n\t\3\n\3\n\3\n\3\13\3\13\3\13\3\13"+
-		"\3\13\2\2\f\2\4\6\b\n\f\16\20\22\24\2\5\4\2\3\3\5\5\5\2\6\6\31\31\33\33"+
-		"\5\2\16\16\23\23\27\27\u0082\2\26\3\2\2\2\4\35\3\2\2\2\6\37\3\2\2\2\b"+
-		"\66\3\2\2\2\nZ\3\2\2\2\f_\3\2\2\2\16g\3\2\2\2\20o\3\2\2\2\22q\3\2\2\2"+
-		"\24t\3\2\2\2\26\27\5\4\3\2\27\3\3\2\2\2\30\36\5\6\4\2\31\36\5\b\5\2\32"+
-		"\36\5\n\6\2\33\36\5\f\7\2\34\36\5\24\13\2\35\30\3\2\2\2\35\31\3\2\2\2"+
-		"\35\32\3\2\2\2\35\33\3\2\2\2\35\34\3\2\2\2\36\5\3\2\2\2\37 \7\26\2\2 "+
-		"!\7\f\2\2!$\5\24\13\2\"#\7\t\2\2#%\7\35\2\2$\"\3\2\2\2%&\3\2\2\2&$\3\2"+
-		"\2\2&\'\3\2\2\2\',\3\2\2\2()\7\t\2\2)*\7\25\2\2*+\7\r\2\2+-\7\34\2\2,"+
-		"(\3\2\2\2,-\3\2\2\2-\62\3\2\2\2./\7\t\2\2/\60\7\b\2\2\60\61\7\r\2\2\61"+
-		"\63\7\34\2\2\62.\3\2\2\2\62\63\3\2\2\2\63\64\3\2\2\2\64\65\7\7\2\2\65"+
-		"\7\3\2\2\2\66\67\7\13\2\2\678\7\f\2\28=\7\35\2\29:\7\t\2\2:<\7\35\2\2"+
-		";9\3\2\2\2<?\3\2\2\2=;\3\2\2\2=>\3\2\2\2>A\3\2\2\2?=\3\2\2\2@B\t\2\2\2"+
-		"A@\3\2\2\2AB\3\2\2\2BC\3\2\2\2CD\7\7\2\2D\t\3\2\2\2EH\7\35\2\2FH\5\16"+
-		"\b\2GE\3\2\2\2GF\3\2\2\2HI\3\2\2\2IJ\7\r\2\2JK\7\34\2\2K[\t\3\2\2LO\7"+
-		"\35\2\2MO\5\22\n\2NL\3\2\2\2NM\3\2\2\2OP\3\2\2\2PQ\7\r\2\2QR\7\34\2\2"+
-		"R[\7\24\2\2SV\7\35\2\2TV\5\20\t\2US\3\2\2\2UT\3\2\2\2VW\3\2\2\2WX\7\r"+
-		"\2\2XY\7\34\2\2Y[\t\4\2\2ZG\3\2\2\2ZN\3\2\2\2ZU\3\2\2\2[\13\3\2\2\2\\"+
-		"`\5\16\b\2]`\5\20\t\2^`\5\22\n\2_\\\3\2\2\2_]\3\2\2\2_^\3\2\2\2`\r\3\2"+
-		"\2\2ab\7\30\2\2bh\7\35\2\2cd\7\20\2\2dh\7\35\2\2ef\7\21\2\2fh\7\35\2\2"+
-		"ga\3\2\2\2gc\3\2\2\2ge\3\2\2\2h\17\3\2\2\2ij\7\22\2\2jp\7\35\2\2kl\7\4"+
-		"\2\2lp\7\35\2\2mn\7\17\2\2np\7\35\2\2oi\3\2\2\2ok\3\2\2\2om\3\2\2\2p\21"+
-		"\3\2\2\2qr\7\n\2\2rs\7\35\2\2s\23\3\2\2\2tu\7\32\2\2uv\7\35\2\2vw\7\32"+
-		"\2\2w\25\3\2\2\2\17\35&,\62=AGNUZ_go";
+		"\3\5\3\5\3\5\3\5\7\5<\n\5\f\5\16\5?\13\5\3\5\3\5\5\5C\n\5\3\5\3\5\3\6"+
+		"\3\6\5\6I\n\6\3\6\3\6\3\6\3\6\3\6\5\6P\n\6\3\6\3\6\3\6\3\6\3\6\5\6W\n"+
+		"\6\3\6\3\6\3\6\5\6\\\n\6\3\7\3\7\3\7\5\7a\n\7\3\b\3\b\3\b\3\b\3\b\3\b"+
+		"\5\bi\n\b\3\t\3\t\3\t\3\t\3\t\3\t\5\tq\n\t\3\n\3\n\3\n\3\13\3\13\6\13"+
+		"x\n\13\r\13\16\13y\3\13\3\13\3\13\2\2\f\2\4\6\b\n\f\16\20\22\24\2\5\4"+
+		"\2\3\3\5\5\5\2\6\6\31\31\33\33\5\2\16\16\23\23\27\27\u0088\2\26\3\2\2"+
+		"\2\4\35\3\2\2\2\6\37\3\2\2\2\b\66\3\2\2\2\n[\3\2\2\2\f`\3\2\2\2\16h\3"+
+		"\2\2\2\20p\3\2\2\2\22r\3\2\2\2\24u\3\2\2\2\26\27\5\4\3\2\27\3\3\2\2\2"+
+		"\30\36\5\6\4\2\31\36\5\b\5\2\32\36\5\n\6\2\33\36\5\f\7\2\34\36\5\24\13"+
+		"\2\35\30\3\2\2\2\35\31\3\2\2\2\35\32\3\2\2\2\35\33\3\2\2\2\35\34\3\2\2"+
+		"\2\36\5\3\2\2\2\37 \7\26\2\2 !\7\f\2\2!$\5\24\13\2\"#\7\t\2\2#%\5\n\6"+
+		"\2$\"\3\2\2\2%&\3\2\2\2&$\3\2\2\2&\'\3\2\2\2\',\3\2\2\2()\7\t\2\2)*\7"+
+		"\25\2\2*+\7\r\2\2+-\7\34\2\2,(\3\2\2\2,-\3\2\2\2-\62\3\2\2\2./\7\t\2\2"+
+		"/\60\7\b\2\2\60\61\7\r\2\2\61\63\7\34\2\2\62.\3\2\2\2\62\63\3\2\2\2\63"+
+		"\64\3\2\2\2\64\65\7\7\2\2\65\7\3\2\2\2\66\67\7\13\2\2\678\7\f\2\28=\7"+
+		"\35\2\29:\7\t\2\2:<\7\35\2\2;9\3\2\2\2<?\3\2\2\2=;\3\2\2\2=>\3\2\2\2>"+
+		"B\3\2\2\2?=\3\2\2\2@A\7\t\2\2AC\t\2\2\2B@\3\2\2\2BC\3\2\2\2CD\3\2\2\2"+
+		"DE\7\7\2\2E\t\3\2\2\2FI\7\35\2\2GI\5\16\b\2HF\3\2\2\2HG\3\2\2\2IJ\3\2"+
+		"\2\2JK\7\r\2\2KL\7\34\2\2L\\\t\3\2\2MP\7\35\2\2NP\5\22\n\2OM\3\2\2\2O"+
+		"N\3\2\2\2PQ\3\2\2\2QR\7\r\2\2RS\7\34\2\2S\\\7\24\2\2TW\7\35\2\2UW\5\20"+
+		"\t\2VT\3\2\2\2VU\3\2\2\2WX\3\2\2\2XY\7\r\2\2YZ\7\34\2\2Z\\\t\4\2\2[H\3"+
+		"\2\2\2[O\3\2\2\2[V\3\2\2\2\\\13\3\2\2\2]a\5\16\b\2^a\5\20\t\2_a\5\22\n"+
+		"\2`]\3\2\2\2`^\3\2\2\2`_\3\2\2\2a\r\3\2\2\2bc\7\30\2\2ci\7\35\2\2de\7"+
+		"\20\2\2ei\7\35\2\2fg\7\21\2\2gi\7\35\2\2hb\3\2\2\2hd\3\2\2\2hf\3\2\2\2"+
+		"i\17\3\2\2\2jk\7\22\2\2kq\7\35\2\2lm\7\4\2\2mq\7\35\2\2no\7\17\2\2oq\7"+
+		"\35\2\2pj\3\2\2\2pl\3\2\2\2pn\3\2\2\2q\21\3\2\2\2rs\7\n\2\2st\7\35\2\2"+
+		"t\23\3\2\2\2uw\7\32\2\2vx\7\35\2\2wv\3\2\2\2xy\3\2\2\2yw\3\2\2\2yz\3\2"+
+		"\2\2z{\3\2\2\2{|\7\32\2\2|\25\3\2\2\2\20\35&,\62=BHOV[`hpy";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
