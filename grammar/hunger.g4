@@ -1,7 +1,7 @@
 grammar hunger;
 
 kood
-    :   lause 
+    :   (lause ';')+ 
     ;
 lause
 	:   newRecipe
@@ -20,14 +20,14 @@ newFood
     ;
 
 omistamine
-	:   (String|kilogram) '=' Number ('kg'|'g'|'mg')
-	|   (String|piece) '=' Number 'pc'
-	|   (String|litre) '=' Number ('l'|'dl'|'ml')
+	:   (String) '=' Number ('kg'|'g'|'mg')
+	|   (String) '=' Number 'pc'
+	|   (String) '=' Number ('l'|'dl'|'ml')
  	;
 defineerimine
-	:   kilogram
-	|   litre
-	|   piece
+	:   kilogram '=' Number ('kg'|'g'|'mg')
+	|   piece '=' Number 'pc'
+	|   litre '=' Number ('l'|'dl'|'ml')
 	;
 kilogram
 	:   'Kilogram' String
@@ -44,7 +44,7 @@ piece
     :   'Piece' String
     ;
 recipeName
-    :   '"' (String)+ '"'
+    :   '"' String '"'
     ;
 Number
     :   ('0'|[1-9][0-9]*)('.'[0-9]+)?
