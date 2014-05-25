@@ -6,7 +6,7 @@ KASUTUSNÄIDE
 newRecipe("recipe name", ingredient1 = int unit, ingredient2...)
 
 Näide:
-newRecipe("Pancakes", flour = 500g, egg = 4, sugar = 100 g, salt = 1 g, milk = 500 dl, servings = 2)
+newRecipe("Pancakes", flour = 500 g, egg = 4 pc, sugar = 100 g, salt = 1 g, milk = 500 dl, servings = 2)
 
 
 
