@@ -58,7 +58,7 @@ public class HungerRecognizer {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		String uus = "newFood(egg, fish, sugar, milk, cow, birds, flour, True)";
+		String uus = "newFood( spaghetti, cow, egg, butter, milk, flour, sugar, fish)";
 		ANTLRInputStream input = new ANTLRInputStream(uus);
 		hungerLexer lexer = new hungerLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);

@@ -1,2 +1,7 @@
 "katsewithuussyntaks";flour=30g,egg=5pc,sugar=1kg
 "pancakes";fish=2pc,milk=3l,sugar=8dl,egg=5pc
+"Banana";banana=2pc
+"Waffles";egg=4pc,milk=1l,butter=500g,sugar=200g,servings=2
+"Potatoes";potato=1kg,sauce=2dl,salad=1kg,milk=1l
+"spaghetti";spaghetti=500g,milk=500ml,butter=50g,flour=1g
+"boiledegg";egg=2pc,water=5dl,servings=1

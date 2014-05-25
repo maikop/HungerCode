@@ -104,35 +104,45 @@ public class hungerHandler {
 		{
 			for(String key : recipeMap.keySet()){
 				int counter = 0;			// See osa vaatab, mitu antud ingredienti retseptis olemas on
-				for(int i = 2; i<=tree.getChildCount() - 3; i++)
+				for(int i = 2; i<=tree.getChildCount() - 2; i++)
 				{
 					if (recipeMap.get(key).contains(tree.getChild(i).getText().toUpperCase()))
 					{
 						counter += 1;		// kui mingi toiduaine on olemas retseptis, increment 1
 					}
 				}
-				ingredientMap.put(counter, key); 	// map<Ingredientide arv, recipeName>
+				
+				if (ingredientMap.containsKey(counter))
+				{
+					ingredientMap.put(counter, ingredientMap.get(counter) +","+ key); 	// map<Ingredientide arv, recipeName>
+				}
+				else
+				{
+					ingredientMap.put(counter, key);
+				}
 			}
 			Object[] ingredientList = ingredientMap.keySet().toArray();
 			Arrays.sort(ingredientList);
 			try
 			{
-				for(int i = 1; i < 6 ; i++)
+				for(int i = 1; i < 5 ; i++)
 				{
 					//System.out.println( ingredientMap.get(ingredientList[ingredientList.length - i]) );
-					String key = ingredientMap.get(ingredientList[ingredientList.length - i]);
-					if (recipeMap.get(key).contains(tree.getChild(2).getText().toUpperCase()))
-						// pmst 'if recipeName.ingredients contains "newFoodiArgument", siis prindib välja'
+					String[] keys = ingredientMap.get(ingredientList[ingredientList.length - i]).split(",");
+					for (int j = 0; j < keys.length ; j++)
 					{
-						System.out.print(key + ": ");		// kujul "recipeName: ingr1 ingr2 ..."
-						for(String ingredient : recipeMap.get(key))
+						String key = keys[j];
+						
 						{
-							System.out.print(ingredient + " ");
+							System.out.print(key + ": ");		// kujul "recipeName: ingr1 ingr2 ..."
+							for(String ingredient : recipeMap.get(key))
+							{
+								System.out.print(ingredient + " ");
+							}
+							System.out.print("  (Sul on " + ingredientList[ingredientList.length - i] + " toiduainet olemas)");
+							System.out.println();				// new line :)
 						}
-						System.out.print("  (Sul on " + ingredientList[ingredientList.length - i] + " toiduainet olemas)");
-						System.out.println();				// new line :)
 					}
-					
 				}
 			}
 			catch (ArrayIndexOutOfBoundsException e){}
