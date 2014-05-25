@@ -1,0 +1,3 @@
+"Test";aaa,bbb,munad,kana
+"Pannkook";jahu,suhkur,munad,pann
+"uus";kana,kukk,shokolaad

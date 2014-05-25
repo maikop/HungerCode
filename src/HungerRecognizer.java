@@ -36,6 +36,7 @@ public class HungerRecognizer {
 		} else if (tree instanceof DefineerimineContext){
 			return hunger(tree.getChild(0));
 		} else if (tree instanceof NewFoodContext) {
+			hungerHandler.foodHandler(tree);
 			//return Arrays.asList(tree.getChild(0).getText());
 		} else if (tree instanceof NewRecipeContext) {
 			hungerHandler.recipeHandler(tree);
@@ -52,12 +53,12 @@ public class HungerRecognizer {
 			//return Arrays.asList(tree.getChild(1).getText());
 			//
 		}
-		return Arrays.asList("lol");
+		return Arrays.asList("Bon appetit!");
 	}
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		String uus = "newRecipe (\"Test\", aaa, bbb))";
+		String uus = "newFood(munad)";
 		ANTLRInputStream input = new ANTLRInputStream(uus);
 		hungerLexer lexer = new hungerLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
