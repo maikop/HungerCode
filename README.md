@@ -11,7 +11,8 @@ newRecipe("Pancakes", flour = 500 g, egg = 4 pc, sugar = 100 g, salt = 1 g, milk
 
 
 newFood(ingredient1, ingredient2, ingredient3, ... , True|False) => True - kõikidest argumendiks antud toiduainetest peab piisama toidu valmistamiseks. 
- False (see on default) - annab ka retsepte, kus osad toiduained puudu on. Kõigepealt annab need retseptid, millest sul rohkem toiduaineid olemas on.
+
+False (see on default) - annab ka retsepte, kus osad toiduained puudu on. Kõigepealt annab need retseptid, millest sul rohkem toiduaineid olemas on.
  
 
 Näide:
