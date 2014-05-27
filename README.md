@@ -18,13 +18,17 @@ False (see on default) - annab ka retsepte, kus osad toiduained puudu on. Kõige
 Näide:
 
 newFood(flour, egg, sugar, salt);
+
 newFood(flour, egg, sugar, salt, milk, True);
+
 newFood(flour, egg, sugar, salt, milk, ginger); (mul on gingerit ka, äkki sellest saab ka midagi teha?)
 
 Hetkel väljastab vastavalt:
 
 "PANCAKES": FLOUR 500G EGG 4PC SUGAR 100G SALT 1G MILK 500DL   (Sul on 4 toiduainet olemas)
+
 "PANCAKES": FLOUR 500G EGG 4PC SUGAR 100G SALT 1G MILK 500DL
+
 "PANCAKES": FLOUR 500G EGG 4PC SUGAR 100G SALT 1G MILK 500DL   (Sul on 5 toiduainet olemas)
 
 TULEVIKUVAATED
